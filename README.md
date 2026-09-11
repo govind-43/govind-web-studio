@@ -1,14 +1,16 @@
-# Govind Web Studio — Portfolio
+# Govind Web Studio Portfolio v2
 
-Files:
-- index.html — main portfolio page
-- style.css — responsive design
-- script.js — small demo interaction
+This version adds:
+- Functional Services, About and Contact pages
+- 3 self-made concept project/case-study pages
+- Original SVG project visuals (no external image dependency)
+- Working project buttons
+- Clear disclosure that demo projects are not client work
+- Outfit headings with subtle letter spacing
+- Mobile responsive layout
 
-## Quick edit
-1. Open `index.html`.
-2. Replace `YOUR_EMAIL@example.com` with your real email.
-3. Replace the three demo project cards with your real project links.
-4. Upload the folder to GitHub and deploy it on a static host such as Cloudflare Pages.
-
-The design is intentionally image-light so it loads quickly on phones. You can add real project screenshots later.
+Before sending to clients:
+1. Replace gkumar8368876@gmail.com in contact.html.
+2. Upload all files/folders to your GitHub repo.
+3. Deploy the updated files on Cloudflare.
+4. Do not describe the concept demos as paid/client projects.
