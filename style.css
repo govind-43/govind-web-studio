@@ -228,22 +228,22 @@ html {
   align-items: center;
   justify-content: center;
   width: fit-content;
-  margin: 0 22px 22px;
-  padding: 12px 20px;
-  border: 1px solid rgba(255,255,255,.12);
+  margin: 0 0 22px;
+  padding: 13px 20px;
+  border: 1px solid transparent;
   border-radius: 999px;
-  background: linear-gradient(135deg,#f6a700 0%,#ffbf3f 50%,#e89a00 100%);
-  color: #111;
+  background: var(--grad);
+  color: #080808;
   text-decoration: none;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
-  box-shadow: 0 6px 18px rgba(245,166,0,.18);
-  transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
+  box-shadow: 0 8px 22px rgba(255, 122, 0, 0.18);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
 }
 
 .demo-btn:hover {
   transform: translateY(-2px);
-  filter: brightness(1.06);
-  box-shadow: 0 10px 26px rgba(245,166,0,.30);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.25);
 }
