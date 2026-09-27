@@ -29,17 +29,6 @@ html {
 
 /* ---------- Hero panel ---------- */
 
-.hero {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5, 5, 5, 0.96) 0%,
-      rgba(5, 5, 5, 0.78) 45%,
-      rgba(5, 5, 5, 0.35) 100%
-    ),
-    url("assets/hero.jpg") center / cover no-repeat;
-}
-
 .hero-panel {
   animation: panelReveal 0.9s cubic-bezier(.22,1,.36,1) 0.12s both;
 }
