@@ -255,3 +255,166 @@ html {
   filter: brightness(1.05);
   box-shadow: 0 10px 25px rgba(255, 122, 0, 0.25);
 }
+
+/* =========================================
+   GOVIND WEB STUDIO - HERO FINAL UPDATE
+   16:9 IMAGE + CENTERED TEXT
+========================================= */
+
+.hero-panel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+/* Hero image */
+.hero-panel .panel-bg-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+/* Dark overlay */
+.hero-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.20),
+            rgba(0, 0, 0, 0.05) 45%,
+            rgba(0, 0, 0, 0.60)
+        );
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* =========================================
+   TOP ROW
+========================================= */
+
+.hero-panel .panel-top {
+    position: absolute;
+
+    top: 28px;
+    left: 30px;
+    right: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 2;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   CENTER TEXT
+========================================= */
+
+.hero-panel .panel-word {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 2;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    font-size: clamp(48px, 8vw, 100px);
+    font-weight: 800;
+
+    line-height: 0.88;
+    letter-spacing: -3px;
+}
+
+/* BUILD orange */
+.hero-panel .panel-word span:nth-child(2) {
+    color: #ff8500;
+}
+
+/* =========================================
+   BOTTOM ROW
+========================================= */
+
+.hero-panel .panel-bottom {
+    position: absolute;
+
+    left: 30px;
+    right: 30px;
+    bottom: 28px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 2;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .hero-panel {
+        aspect-ratio: 16 / 9;
+    }
+
+    .hero-panel .panel-top {
+        top: 16px;
+        left: 16px;
+        right: 16px;
+
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+
+    .hero-panel .panel-word {
+        font-size: clamp(38px, 11vw, 65px);
+
+        line-height: 0.88;
+        letter-spacing: -2px;
+    }
+
+    .hero-panel .panel-bottom {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+
+        font-size: 8px;
+    }
+   }
