@@ -166,7 +166,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -.045em; line-height: 1.06; margi
   z-index: 2;
   font-size: clamp(50px, 8vw, 110px);
   font-weight: 800;
-  line-height: 0.9;
+  line-height: 1.05;
   letter-spacing: -3px;
   color: #ffffff;
   text-align: left;
