@@ -43,7 +43,36 @@ html {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+   /* --- NEW: Hero Panel Background Image Setup --- */
+
+/* 1. Update the container to hold the image */
+.hero-panel {
+    /* Keep your existing animation line! Just add these below it: */
+    position: relative; 
+    overflow: hidden;
+    background-color: var(--surface); /* Uses your existing dark grey variable */
 }
+
+/* 2. Style the image to act as a background */
+.panel-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills box without stretching */
+    z-index: 0;        /* Puts image behind the text */
+    opacity: 0.35;     /* Makes it slightly transparent so text is readable */
+}
+
+/* 3. Bring your text to the front */
+.panel-top, 
+.panel-word, 
+.panel-bottom {
+    position: relative; /* Required for z-index to work */
+    z-index: 1;         /* Puts text on top of the image */
+}
+ }
 
 /* ---------- Scroll reveal ---------- */
 
