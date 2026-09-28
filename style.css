@@ -326,15 +326,13 @@ html {
 }
 
 /* =========================================
-   CENTER TEXT
+   HERO CENTER TEXT
 ========================================= */
 
 .hero-panel .panel-word {
     position: absolute;
-
     top: 50%;
     left: 50%;
-
     transform: translate(-50%, -50%);
 
     width: 100%;
@@ -342,24 +340,46 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    z-index: 2;
-
-    color: #ffffff;
+    justify-content: center;
 
     text-align: center;
 
-    font-size: clamp(48px, 8vw, 100px);
+    z-index: 2;
+
+    color: #fff;
+
+    font-size: clamp(42px, 8vw, 100px);
     font-weight: 800;
 
-    line-height: 1.02;
+    /* SPACE BETWEEN EACH LINE */
+    line-height: 1.05;
+
     letter-spacing: -3px;
+}
+
+/* Each word is its own line */
+.hero-panel .panel-word span {
+    display: block;
 }
 
 /* BUILD orange */
 .hero-panel .panel-word span:nth-child(2) {
     color: #ff8500;
-   }
+}
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .hero-panel .panel-word {
+        font-size: clamp(42px, 12vw, 70px);
+
+        /* More visible line spacing */
+        line-height: 1.08;
+
+        letter-spacing: -2px;
+    }
+}
 
 /* =========================================
    BOTTOM ROW
