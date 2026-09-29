@@ -123,6 +123,7 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -.045em; line-height: 1.06; margi
   position:relative;
   width:100%;
   aspect-ratio:16 / 9;
+  background-image: url('assets/hero.jpg');
   min-height:0;
   padding:0;
   overflow:hidden;
