@@ -149,36 +149,37 @@ h1, h2, h3 { font-weight: 800; letter-spacing: -.045em; line-height: 1.06; margi
 /* Top Row (Govind Web Studio / 01/04) */
 .hero-panel .panel-top {
   position: absolute;
-  top: 24px;
-  left: 28px;
-  right: 28px;
+  top: 30px;
+  left: 40px;
+  right: 40px;
   display: flex;
   justify-content: space-between;
-  
+  align-items: center;
   z-index: 2;
-  color: #ddd;
+  color: #ffffff;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 15em;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 /* Bottom Row (Mobile-first / Responsive / Fast) */
-.hero-panel .panel-bottom{
-  position:absolute;
-  left:28px;
-  bottom:24px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  padding:0;
-  border:0;
-  color:#aaa;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
+.hero-panel .panel-bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
+
 
 /* =========================================
    OTHER SECTIONS (WORK, SERVICES, ETC.)
