@@ -58,6 +58,9 @@ button, input, textarea { font: inherit; }
   padding: 11px 17px;
   border-radius: 999px;
   transition: transform .25s ease, box-shadow .25s ease;
+      }
+.mobile-cta{
+  display:none;
 }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(255, 122, 0, .18); }
 .menu-btn { display: none; border: 0; background: none; color: #fff; font-size: 27px; }
@@ -325,6 +328,7 @@ footer { border-top: 1px solid var(--line); padding: 25px 0; color: #70706a; fon
    MEDIA QUERIES (RESPONSIVE)
 ========================================= */
 @media(max-width: 950px) {
+  .mobile-cta{ display:inline-flex; }
   .nav { display: none; }
   .menu-btn { display: block; }
   .mobile-menu { position: fixed; inset: 80px 0 0; background: rgba(7, 7, 7, .98); z-index: 99; padding: 30px 6%; flex-direction: column; gap: 23px; }
