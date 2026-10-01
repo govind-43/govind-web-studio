@@ -1,490 +1,298 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Web Design & Development | Govind Web Studio</title>
-  <meta name="description" content="Govind Web Studio creates modern responsive websites for gyms, salons, restaurants and local businesses.">
-  <meta name="theme-color" content="#070707">
-  <link rel="icon" href="assets/favicon.png">
-  <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iron District Fitness | Strength, Conditioning &amp; Coaching</title>
+<meta name="description" content="Structured strength training, conditioning and coaching at Iron District Fitness.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { bg: '#080A0A', bg2: '#111515', card: '#151A19', lime: '#B6FF00', txt: '#F5F7F2', mute: '#9AA19A', line: '#232B28' },
+    fontFamily: { head: ['Archivo', 'sans-serif'], body: ['"DM Sans"', 'sans-serif'] }
+  } } };
+</script>
+<style>
+  body { font-family: 'DM Sans', sans-serif; background: #080A0A; color: #F5F7F2; line-height: 1.65; overflow-x: hidden; }
+  .hd { font-family: 'Archivo', sans-serif; font-stretch: 100%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.035em; line-height: .92; }
+  .wrap { max-width: 80rem; margin: 0 auto; padding: 0 1.25rem; }
+  @media (min-width: 768px) { .wrap { padding: 0 2rem; } }
+  .sec { padding: 5rem 0; } @media (min-width: 768px) { .sec { padding: 8rem 0; } }
+  .tag { font-size: .75rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #B6FF00; }
 
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3.25rem; padding: 0 1.75rem; border-radius: .25rem;
+         font-family: 'Archivo', sans-serif; font-weight: 700; font-size: .875rem; letter-spacing: .08em; text-transform: uppercase;
+         transition: transform .25s, box-shadow .25s, background .25s, color .25s, border-color .25s; }
+  .btn-lime { background: #B6FF00; color: #080A0A; }
+  .btn-lime:hover { transform: translateY(-2px); box-shadow: 0 10px 34px -8px rgba(182,255,0,.55); }
+  .btn-ghost { border: 1px solid #3a4540; color: #F5F7F2; }
+  .btn-ghost:hover { border-color: #B6FF00; color: #B6FF00; transform: translateY(-2px); }
+  :focus-visible { outline: 2px solid #B6FF00; outline-offset: 3px; }
+
+  /* Nav */
+  #nav { transition: background .35s, border-color .35s; border-bottom: 1px solid transparent; }
+  #nav.solid { background: rgba(8,10,10,.92); backdrop-filter: blur(12px); border-color: #232B28; }
+  .nl { position: relative; color: #9AA19A; transition: color .25s; }
+  .nl::after { content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0; background: #B6FF00; transition: width .3s; }
+  .nl:hover, .nl.on { color: #F5F7F2; } .nl.on::after, .nl:hover::after { width: 100%; }
+
+  /* Reveal */
+  .rv { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .rv.in { opacity: 1; transform: none; }
+  .img-rv { overflow: hidden; }
+  .img-rv img { clip-path: inset(0 0 100% 0); transform: scale(1.12); transition: clip-path 1.1s cubic-bezier(.7,0,.2,1), transform 1.4s cubic-bezier(.2,.7,.2,1); }
+  .img-rv.in img { clip-path: inset(0); transform: scale(1); }
+  .img-rv:hover.in img { transform: scale(1.05); }
+
+  .card { background: #151A19; border: 1px solid #232B28; transition: transform .35s, border-color .35s, box-shadow .35s; }
+  .card:hover { transform: translateY(-6px); border-color: rgba(182,255,0,.5); box-shadow: 0 20px 40px -24px rgba(182,255,0,.35); }
+  .field { width: 100%; background: #111515; border: 1px solid #232B28; border-radius: .25rem; padding: .9rem 1rem; color: #F5F7F2; transition: border-color .25s; }
+  .field:focus { outline: none; border-color: #B6FF00; }
+  .field::placeholder { color: #6b736d; }
+  .plan { border-top: 1px solid #232B28; transition: background .3s; }
+  .plan:hover { background: #111515; }
+  @media (prefers-reduced-motion: reduce) { .rv, .img-rv img { opacity: 1; transform: none; clip-path: none; transition: none; } .btn:hover, .card:hover { transform: none; } }
+</style>
+</head>
 <body>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-
-      <a href="index.html">
-        <img class="logo" src="assets/logo-header.png" alt="Govind Web Studio">
-      </a>
-
-      <nav class="nav">
-        <a href="index.html#work">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a class="nav-cta" href="contact.html">Let's Talk </a>
-      </nav>
-
-      <div style="display:flex;align-items:center;gap:10px">
-        <a class="nav-cta" href="contact.html">Let's Talk </a>
-        <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-      </div>
-
-    </div>
-  </header>
-
-
-  <div class="mobile-menu">
-    <a href="index.html#work">Home</a>
-    <a href="services.html">Services</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+<!-- ===== NAV ===== -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50">
+  <div class="wrap h-16 md:h-20 flex items-center justify-between">
+    <a href="#home" class="hd text-lg md:text-xl">Iron District <span class="text-lime">Fitness</span></a>
+    <nav class="hidden lg:flex gap-9 text-sm font-medium" id="links"></nav>
+    <a href="#contact" class="btn btn-lime !min-h-10 hidden lg:inline-flex">Join now &#8599;</a>
+    <button id="mb" class="lg:hidden w-11 h-11 grid place-items-center" aria-label="Open menu" aria-expanded="false">
+      <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path id="mbi" d="M4 8h16M4 16h16"/></svg>
+    </button>
   </div>
-
-
-  <main>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-      <div class="container hero-grid">
-
-        <div>
-          <p class="kicker">
-            Web Design <span>•</span> Development <span>•</span> Digital Presence
-          </p>
-
-          <h1>
-            Websites that make
-            <span class="gradient-text">businesses stand out.</span>
-          </h1>
-
-          <p class="hero-copy">
-            Modern, mobile-first websites built to make your business look professional,
-            build trust and turn visitors into enquiries.
-          </p>
-
-          <div class="actions">
-            <a class="btn btn-primary" href="#work">
-              View My Work ↗
-            </a>
-
-            <a class="btn btn-secondary" href="contact.html">
-              Get a Free Demo
-            </a>
-          </div>
-        </div>
-
-
-        <div class="hero-panel">
-          
-        
-          <div class="panel-top">
-            <span>GOVIND WEB STUDIO</span>
-            <span>01 / 04</span>
-          </div>
-
-          
-
-          <div class="panel-bottom">
-            <span>Mobile-first</span>
-            <span>Responsive</span>
-            <span>Fast</span>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- WORK SECTION -->
-    <section id="work" class="section section-dark">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <p class="kicker">Selected Work</p>
-
-            <h2>
-              Concept websites built for real business categories.
-            </h2>
-          </div>
-
-          <p>
-            Self-made portfolio concepts that show how I approach different industries.
-          </p>
-
-        </div>
-
-
-        <div class="work-grid">
-
-          <!-- GYM -->
-          <article class="work-card">
-
-            <a class="work-img" href="Projects/gym.html">
-              <img
-                src="assets/gym.jpg"
-                alt="Gym website concept"
-              >
-            </a>
-
-            <div class="work-info">
-
-              <span class="work-meta">
-                Fitness
-              </span>
-
-              <h3>
-                Iron District
-              </h3>
-
-              <p>
-                Memberships, free trials and strong fitness branding.
-              </p>       
-             <a class="demo-btn" href="https://govind-43.github.io/Gym-demo/">View live demo ↗
-             </a>
-            </div>
-          </article>
-
-
-          <!-- SALON -->
-          <article class="work-card">
-
-            <a class="work-img" href="Projects/salon.html">
-              <img
-                src="assets/salon.jpg"
-                alt="Salon and barber website concept"
-              >
-            </a>
-
-            <div class="work-info">
-
-              <span class="work-meta">
-                Salon / Barber
-              </span>
-
-              <h3>
-                Northside Studio
-              </h3>
-
-              <p>
-                Services, pricing and appointment-focused design.
-              </p>
-
-            <a class="demo-btn" href="Projects/salon.html">View live demo ↗
-            </a>
-            </div>
-          </article>
-
-
-          <!-- RESTAURANT -->
-          <article class="work-card">
-
-            <a class="work-img" href="Projects/restaurant.html">
-              <img
-                src="assets/restaurant.jpg"
-                alt="Restaurant website concept"
-              >
-            </a>
-
-            <div class="work-info">
-
-              <span class="work-meta">
-                Restaurant
-              </span>
-
-              <h3>
-                Ember &amp; Table
-              </h3>
-
-              <p>
-                Menu discovery, reservations and location information.
-              </p>
-              
-            <a class="demo-btn" href="Projects/restaurant.html">View live demo ↗
-            </a>
-           </div>
-          </article>
-
-        </div>
-
-
-        <p class="note">
-          Portfolio proof: these are self-made concept demos, not claimed client projects.
-        </p>
-
-      </div>
-    </section>
-
-
-    <!-- SERVICES SECTION -->
-    <section class="section">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <p class="kicker">Services</p>
-
-            <h2>
-              Everything needed to launch a professional website.
-            </h2>
-          </div>
-
-        </div>
-
-
-        <div class="services-grid">
-
-          <div class="service">
-            <span class="service-num">01</span>
-
-            <h3>
-              Website Design
-            </h3>
-
-            <p>
-              Clean layouts, strong hierarchy and a visual style matched to your business.
-            </p>
-          </div>
-
-
-          <div class="service">
-            <span class="service-num">02</span>
-
-            <h3>
-              Development
-            </h3>
-
-            <p>
-              Responsive HTML, CSS and JavaScript built for mobile, tablet and desktop.
-            </p>
-          </div>
-
-
-          <div class="service">
-            <span class="service-num">03</span>
-
-            <h3>
-              Business Pages
-            </h3>
-
-            <p>
-              Services, pricing, gallery, testimonials, contact and enquiry-focused sections.
-            </p>
-          </div>
-
-
-          <div class="service">
-            <span class="service-num">04</span>
-
-            <h3>
-              Launch Support
-            </h3>
-
-            <p>
-              Domain connection, deployment, testing and a clean handover to the client.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ABOUT SECTION -->
-    <section class="section section-dark">
-
-      <div class="container about-grid">
-
-        <div>
-          <p class="kicker">
-            Why Govind Web Studio
-          </p>
-
-          <h2>
-            Simple websites. Clear purpose. Professional execution.
-          </h2>
-        </div>
-
-
-        <div>
-
-          <p>
-            I focus on websites that a customer can understand quickly.
-            The goal is not to fill every screen with effects—it is to make
-            the business, offer and next action obvious.
-          </p>
-
-          <ul class="check-list">
-            <li>Mobile-first responsive layout</li>
-            <li>Clear calls-to-action</li>
-            <li>Fast, lightweight structure</li>
-            <li>Business-focused page sections</li>
-            <li>Clean client handover</li>
-          </ul>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- PROCESS SECTION -->
-    <section class="section">
-
-      <div class="container">
-
-        <div class="section-head">
-
-          <div>
-            <p class="kicker">
-              Process
-            </p>
-
-            <h2>
-              From first message to live website.
-            </h2>
-          </div>
-
-        </div>
-
-
-        <div class="process-grid">
-
-          <div class="process">
-
-            <span>
-              01 — DISCOVER
-            </span>
-
-            <h3>
-              Understand
-            </h3>
-
-            <p>
-              Business, audience, services, location and goals.
-            </p>
-
-          </div>
-
-
-          <div class="process">
-
-            <span>
-              02 — DESIGN
-            </span>
-
-            <h3>
-              Plan
-            </h3>
-
-            <p>
-              Structure, sections, content and visual direction.
-            </p>
-
-          </div>
-
-
-          <div class="process">
-
-            <span>
-              03 — BUILD
-            </span>
-
-            <h3>
-              Develop
-            </h3>
-
-            <p>
-              Responsive pages, forms, links and mobile navigation.
-            </p>
-
-          </div>
-
-
-          <div class="process">
-
-            <span>
-              04 — LAUNCH
-            </span>
-
-            <h3>
-              Deliver
-            </h3>
-
-            <p>
-              Testing, domain setup, deployment and handover.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- CTA SECTION -->
-    <section class="cta">
-
-      <div class="container">
-
-        <p class="kicker">
-          Have a business that needs a website?
-        </p>
-
-        <h2>
-          Let's build a website
-          <span class="gradient-text">worth visiting.</span>
-        </h2>
-
-        <p>
-          Tell me what your business does and what you want your website to achieve.
-        </p>
-
-        <a class="btn btn-primary" href="contact.html">
-          Let's Talk ↗
-        </a>
-
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="container footer-grid">
-
-      <span>
-        © 2026 Govind Web Studio
-      </span>
-
-      <div class="footer-links">
-        <a href="index.html#work">Work</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-      <span>
-        Websites That Work.
-      </span>
-
+  <div id="mm" class="hidden lg:hidden fixed inset-0 top-16 bg-bg px-5 pt-8">
+    <div id="mlinks" class="flex flex-col"></div>
+    <a href="#contact" class="btn btn-lime w-full mt-8 mm-a">Join now &#8599;</a>
+  </div>
+</header>
+
+<main>
+<!-- ===== HERO ===== -->
+<section id="home" class="relative min-h-[100svh] flex items-end overflow-hidden">
+  <img data-img="hero" alt="" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-bg/30"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/40 to-transparent"></div>
+  <div class="absolute left-0 top-1/3 h-px w-24 md:w-48 bg-lime"></div>
+  <div class="wrap relative w-full pt-32 pb-14 md:pb-24">
+    <p class="tag rv">Train hard. Move better.</p>
+    <p class="hd text-2xl md:text-3xl mt-4 text-mute rv">Iron District<br>Fitness</p>
+    <h1 class="hd text-[3.4rem] leading-[.9] sm:text-8xl md:text-[9.5rem] mt-5 max-w-5xl rv">Build your stronger self.</h1>
+    <p class="text-mute text-lg max-w-md mt-6 rv">Strength training, conditioning and coaching designed to help you perform at your best.</p>
+    <div class="flex flex-col sm:flex-row gap-3 mt-9 rv">
+      <a href="#contact" class="btn btn-lime">Join now &#8599;</a>
+      <a href="#training" class="btn btn-ghost">Explore training</a>
     </div>
+  </div>
+</section>
 
-  </footer>
+<!-- ===== STATS ===== -->
+<section class="bg-bg2 border-y border-line">
+  <div class="wrap grid grid-cols-2 lg:grid-cols-4" id="stats"></div>
+</section>
 
+<!-- ===== ABOUT ===== -->
+<section id="about" class="sec">
+  <div class="wrap grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <div>
+      <p class="tag rv">About us</p>
+      <h2 class="hd text-5xl md:text-7xl mt-4 rv">More than a gym.</h2>
+      <p class="text-mute mt-6 max-w-lg rv">Iron District Fitness is built around structured training, strength development and sustainable progress. Every session has a purpose, every member has a plan, and our coaches are on the floor to keep technique sharp.</p>
+      <p class="text-mute mt-4 max-w-lg rv">No gimmicks and no crowded floors. Just a spacious, well-equipped space where consistent work compounds over time.</p>
+      <p class="hd text-xl md:text-2xl mt-8 pl-4 border-l-2 border-lime rv">Discipline builds results.</p>
+    </div>
+    <div class="img-rv rounded-md aspect-[4/5] lg:aspect-[5/6]"><img data-img="about" alt="Spacious training floor" class="w-full h-full object-cover"></div>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<!-- ===== TRAINING ===== -->
+<section id="training" class="sec bg-bg2">
+  <div class="wrap">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+      <h2 class="hd text-5xl md:text-7xl rv">Training</h2>
+      <p class="text-mute max-w-sm rv">Four ways to train, each with clear coaching and a clear goal.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4" id="svc"></div>
+  </div>
+</section>
 
+<!-- ===== MEMBERSHIP ===== -->
+<section id="membership" class="sec">
+  <div class="wrap">
+    <p class="tag rv">Membership</p>
+    <h2 class="hd text-5xl md:text-7xl mt-4 mb-12 rv">Pick your level.</h2>
+    <div id="plans" class="border-b border-line"></div>
+    <div class="mt-10 rv"><a href="#contact" class="btn btn-lime">Choose your membership</a></div>
+  </div>
+</section>
+
+<!-- ===== WHY ===== -->
+<section id="why" class="sec bg-bg2">
+  <div class="wrap">
+    <h2 class="hd text-5xl md:text-7xl mb-14 rv">Why Iron District</h2>
+    <div class="grid md:grid-cols-3 gap-10 md:gap-8" id="why-list"></div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="sec">
+  <div class="wrap">
+    <h2 class="hd text-5xl md:text-7xl mb-12 rv">Inside the district</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[9rem] md:auto-rows-[14rem] gap-2 md:gap-3" id="gal"></div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="reviews" class="sec bg-bg2">
+  <div class="wrap">
+    <h2 class="hd text-5xl md:text-7xl mb-12 rv">Members say</h2>
+    <div class="grid md:grid-cols-3 gap-4" id="rev"></div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="sec relative overflow-hidden text-center">
+  <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-lime to-transparent"></div>
+  <div class="wrap">
+    <h2 class="hd text-[2.9rem] sm:text-7xl md:text-[8rem] text-lime rv">Ready to put in the work?</h2>
+    <p class="text-mute text-lg mt-6 rv">Start training with a plan built around your goals.</p>
+    <a href="#contact" class="btn btn-lime mt-9 rv">Start your membership &#8599;</a>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="sec bg-bg2">
+  <div class="wrap grid lg:grid-cols-2 gap-12 lg:gap-16">
+    <div>
+      <p class="tag rv">Contact</p>
+      <h2 class="hd text-5xl md:text-7xl mt-4 rv">Visit us.</h2>
+      <dl class="mt-8 space-y-5 rv">
+        <div><dt class="text-mute text-sm">Address</dt><dd>[Street Address], [City], [Postcode]</dd></div>
+        <div><dt class="text-mute text-sm">Opening hours</dt><dd>Mon to Sat, 5:30 AM to 10:30 PM<br>Sun, 7:00 AM to 8:00 PM</dd></div>
+        <div><dt class="text-mute text-sm">Phone</dt><dd><a class="hover:text-lime transition" href="tel:+910000000000">+91 00000 00000</a></dd></div>
+        <div><dt class="text-mute text-sm">Email</dt><dd><a class="hover:text-lime transition" href="mailto:hello@irondistrict.example">hello@irondistrict.example</a></dd></div>
+      </dl>
+      <a href="https://wa.me/910000000000" class="btn btn-ghost mt-7 rv">Chat on WhatsApp</a>
+      <!-- Google Maps placeholder: replace with an iframe embed -->
+      <div class="mt-8 h-56 rounded-md border border-line relative overflow-hidden rv" style="background:#0d1110 repeating-linear-gradient(0deg,transparent 0 39px,#1a2220 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,#1a2220 39px 40px)">
+        <div class="absolute inset-0 grid place-items-center text-center"><div><span class="block w-4 h-4 rounded-full bg-lime mx-auto mb-2 shadow-[0_0_24px_#B6FF00]"></span><span class="text-mute text-sm">Google Maps placeholder</span></div></div>
+      </div>
+    </div>
+    <form id="form" class="card rounded-md p-6 md:p-8 space-y-4 self-start hover:!transform-none rv">
+      <h3 class="hd text-2xl mb-2">Send an enquiry</h3>
+      <input class="field" name="name" placeholder="Name" required aria-label="Name">
+      <input class="field" name="phone" type="tel" placeholder="Phone" required aria-label="Phone">
+      <select class="field" name="goal" aria-label="Goal"><option value="">Your goal</option><option>Build strength</option><option>Lose fat</option><option>Improve endurance</option><option>General fitness</option></select>
+      <select class="field" name="training" aria-label="Preferred training"><option value="">Preferred training</option><option>Strength Training</option><option>Personal Coaching</option><option>Conditioning</option><option>Group Training</option></select>
+      <textarea class="field" name="message" rows="4" placeholder="Message" aria-label="Message"></textarea>
+      <button class="btn btn-lime w-full" type="submit">Send enquiry</button>
+      <p id="fmsg" class="text-sm text-lime hidden" role="status">Thanks. We will get back to you shortly.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="border-t border-line py-14">
+  <div class="wrap grid gap-10 md:grid-cols-4">
+    <div class="md:col-span-2"><p class="hd text-2xl">Iron District <span class="text-lime">Fitness</span></p><p class="text-mute mt-3 max-w-xs">Structured training for people who want lasting progress.</p></div>
+    <div><p class="tag mb-3">Quick links</p><ul class="space-y-2 text-mute"><li><a class="hover:text-lime transition" href="#training">Training</a></li><li><a class="hover:text-lime transition" href="#membership">Membership</a></li><li><a class="hover:text-lime transition" href="#contact">Contact</a></li></ul></div>
+    <div><p class="tag mb-3">Follow</p><ul class="space-y-2 text-mute"><li><a class="hover:text-lime transition" href="#">Instagram</a></li><li><a class="hover:text-lime transition" href="https://wa.me/910000000000">WhatsApp</a></li></ul></div>
+  </div>
+  <div class="wrap mt-12 pt-6 border-t border-line text-sm text-mute">&copy; <span id="yr"></span> Iron District Fitness. All rights reserved.</div>
+</footer>
+
+<script>
+  // ---------- Images: swap URLs here. Fallback is a dark placeholder. ----------
+  const U = id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=70`;
+  const IMG = {
+    hero:  U('photo-1534438327276-14e5300c3a48'),
+    about: U('photo-1571902943202-507ec2618e8f'),
+    g: ['photo-1534438327276-14e5300c3a48','photo-1558611848-73f7eb4001a1','photo-1571902943202-507ec2618e8f','photo-1593079831268-3381b0db4a77','photo-1517836357463-d25dfeac3438','photo-1540497077202-7c8a3999166f'].map(U)
+  };
+  const fb = t => `https://placehold.co/1200x900/151A19/B6FF00?text=${encodeURIComponent(t)}`;
+  const setImg = (img, src, label) => { img.src = src; img.loading = 'lazy'; img.onerror = () => { img.onerror = null; img.src = fb(label); }; };
+
+  // ---------- Content ----------
+  const sections = [['home','Home'],['about','About'],['training','Training'],['membership','Membership'],['contact','Contact']];
+  document.getElementById('links').innerHTML = sections.map(([id, l]) => `<a class="nl" href="#${id}">${l}</a>`).join('');
+  document.getElementById('mlinks').innerHTML = sections.map(([id, l]) => `<a class="mm-a hd text-4xl py-4 border-b border-line" href="#${id}">${l}</a>`).join('');
+
+  document.getElementById('stats').innerHTML = ['Personal Training','Strength & Conditioning','Modern Equipment','Flexible Memberships'].map((t, i) => `
+    <div class="rv py-8 md:py-12 px-1 md:px-6 ${i % 2 ? 'border-l border-line' : ''} ${i > 1 ? 'border-t lg:border-t-0 border-line' : ''} ${i === 2 ? 'lg:border-l border-line' : ''}">
+      <div class="hd text-4xl md:text-6xl text-lime">0${i + 1}</div><div class="mt-3 text-xs md:text-sm font-semibold tracking-widest uppercase text-txt">${t}</div></div>`).join('');
+
+  const svc = [
+    ['Strength Training', ['Build strength','Improve technique','Progressive training']],
+    ['Personal Coaching', ['One-to-one guidance','Personalized programs','Progress tracking']],
+    ['Conditioning', ['Improve endurance','Functional movement','Performance focused']],
+    ['Group Training', ['High-energy sessions','Small groups','Community environment']]];
+  document.getElementById('svc').innerHTML = svc.map(([t, l]) => `
+    <article class="card rounded-md p-7 rv"><div class="w-8 h-0.5 bg-lime mb-8"></div><h3 class="hd text-3xl mb-6">${t}</h3>
+    <ul class="space-y-3 text-mute">${l.map(x => `<li class="flex gap-3"><span class="text-lime">+</span>${x}</li>`).join('')}</ul></article>`).join('');
+
+  const plans = [['District', ['Full gym access','Locker access','Basic equipment orientation']],
+    ['Performance', ['Full gym access','Group training','Progress tracking']],
+    ['Elite', ['Full gym access','Personal coaching','Customized training plan']]];
+  document.getElementById('plans').innerHTML = plans.map(([n, l], i) => `
+    <div class="plan rv grid md:grid-cols-[6rem_1fr_1.4fr] gap-3 md:gap-8 items-baseline py-8 md:py-10 px-1 md:px-4">
+      <span class="text-lime font-semibold">0${i + 1}</span><h3 class="hd text-4xl md:text-6xl">${n}</h3>
+      <ul class="text-mute grid sm:grid-cols-1 gap-1 mt-2 md:mt-0">${l.map(x => `<li>${x}</li>`).join('')}</ul></div>`).join('');
+
+  const why = [['Train with purpose','Structured training instead of random workouts.'],['Built for progress','Track your strength, conditioning and consistency.'],['No shortcuts','Focus on sustainable improvement.']];
+  document.getElementById('why-list').innerHTML = why.map(([t, d], i) => `
+    <div class="rv border-t border-lime pt-6"><span class="text-lime font-semibold">0${i + 1}</span><h3 class="hd text-3xl md:text-4xl mt-3">${t}</h3><p class="text-mute mt-4">${d}</p></div>`).join('');
+
+  const gal = [['Weight training area','col-span-2 row-span-2'],['Squat racks',''],['Dumbbells','row-span-2'],['Functional training area',''],['Interior architecture','md:col-span-2'],['Equipment detail','md:col-span-2']];
+  document.getElementById('gal').innerHTML = gal.map(([t, c], i) => `
+    <figure class="img-rv relative rounded-md ${c}"><img alt="${t}" data-g="${i}" class="w-full h-full object-cover">
+    <figcaption class="absolute inset-x-0 bottom-0 p-3 md:p-4 text-xs md:text-sm bg-gradient-to-t from-black/80 to-transparent">${t}</figcaption></figure>`).join('');
+
+  const rev = [['Rahul Mehta','Member for 8 months','The coaching is clear and no one rushes you. My squat form is far better than when I started.'],
+    ['Arjun Kapoor','Member for 1 year','Plenty of space, never crowded, and the equipment is always in good shape. I actually stick to my routine now.'],
+    ['Neha Sharma','Member for 5 months','Group sessions are small enough that the trainer notices everything. It keeps me showing up.']];
+  document.getElementById('rev').innerHTML = rev.map(([n, m, q]) => `
+    <blockquote class="card rounded-md p-7 rv"><span class="hd text-5xl text-lime block h-8">&ldquo;</span><p class="mt-4">${q}</p>
+    <footer class="mt-6 pt-5 border-t border-line"><div class="font-semibold">${n}</div><div class="text-mute text-sm">${m}</div></footer></blockquote>`).join('');
+
+  // Apply images
+  setImg(document.querySelector('[data-img=hero]'), IMG.hero, 'Hero image');
+  setImg(document.querySelector('[data-img=about]'), IMG.about, 'Training floor');
+  document.querySelectorAll('[data-g]').forEach(im => setImg(im, IMG.g[im.dataset.g], im.alt));
+  document.querySelector('[data-img=hero]').loading = 'eager';
+
+  // ---------- Nav: solid on scroll, active link, mobile menu ----------
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('solid', scrollY > 40);
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+
+  const mb = document.getElementById('mb'), mm = document.getElementById('mm');
+  const menu = open => { mm.classList.toggle('hidden', !open); mb.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : '';
+    document.getElementById('mbi').setAttribute('d', open ? 'M6 6l12 12M18 6L6 18' : 'M4 8h16M4 16h16'); if (open) nav.classList.add('solid'); else onScroll(); };
+  mb.onclick = () => menu(mm.classList.contains('hidden'));
+  document.querySelectorAll('.mm-a').forEach(a => a.onclick = () => menu(false));
+
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) document.querySelectorAll('.nl').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(([id]) => spy.observe(document.getElementById(id)));
+
+  // ---------- Scroll reveal ----------
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.12 });
+  document.querySelectorAll('.rv, .img-rv').forEach((el, i) => { el.style.transitionDelay = (i % 3) * 90 + 'ms'; io.observe(el); });
+
+  // ---------- Enquiry form (demo: no backend) ----------
+  document.getElementById('form').addEventListener('submit', e => { e.preventDefault(); e.target.reset(); document.getElementById('fmsg').classList.remove('hidden'); });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
